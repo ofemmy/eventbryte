@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
-import { InertiaLink } from '@inertiajs/inertia-react'
+import { Box, Flex } from '@chakra-ui/core';
+import Navbar from '../components/Navbar';
 
 export default function Layout({ title, children }) {
   useEffect(() => {
@@ -7,14 +8,9 @@ export default function Layout({ title, children }) {
   }, [title])
 
   return (
-    <main>
-      <header>
-        <InertiaLink href="/">Home</InertiaLink>
-        <InertiaLink href="/about">About</InertiaLink>
-        <InertiaLink href="/contact">Contact</InertiaLink>
-      </header>
-
-      <div>{children}</div>
-    </main>
+    <Box as="main" bg="light-gray" h="100vh" w="100%">
+        <Navbar/>
+        <div>{children}</div>
+    </Box>
   )
 }
