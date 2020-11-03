@@ -1,13 +1,11 @@
-import React from 'react'
-import Layout from '../shared/Layout'
+import React from "react";
 
-export default function Welcome(props){
+import Layout from "../shared/Layout";
+
+export default function Welcome() {
     return (
         <Layout title="Welcome">
-        <div>
-            Hello there {props.name} how are you
-        </div>
-        </Layout>
 
-    )
+        </Layout>
+    );
 }

@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "js/" + ({}[chunkId]||chunkId) + ".js?id=" + {"0":"6d6b403f327df838360d"}[chunkId] + ""
+/******/ 		return __webpack_require__.p + "js/" + ({}[chunkId]||chunkId) + ".js?id=" + {"0":"d6ca87b01ed124f35e09","1":"6aecc4af4433dc4295e2","2":"8768442475383c4e7e37","3":"50d4acc0533633e1d218"}[chunkId] + ""
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -82500,13 +82500,35 @@ module.exports = function(module) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
+	"./Event/Details": [
+		"./resources/js/Pages/Event/Details.js",
+		0,
+		1
+	],
+	"./Event/Details.js": [
+		"./resources/js/Pages/Event/Details.js",
+		0,
+		1
+	],
+	"./Event/Index": [
+		"./resources/js/Pages/Event/Index.js",
+		0,
+		2
+	],
+	"./Event/Index.js": [
+		"./resources/js/Pages/Event/Index.js",
+		0,
+		2
+	],
 	"./Welcome": [
 		"./resources/js/Pages/Welcome.js",
-		0
+		0,
+		3
 	],
 	"./Welcome.js": [
 		"./resources/js/Pages/Welcome.js",
-		0
+		0,
+		3
 	]
 };
 function webpackAsyncContext(req) {
@@ -82519,7 +82541,7 @@ function webpackAsyncContext(req) {
 	}
 
 	var ids = map[req], id = ids[0];
-	return __webpack_require__.e(ids[1]).then(function() {
+	return Promise.all(ids.slice(1).map(__webpack_require__.e)).then(function() {
 		return __webpack_require__(id);
 	});
 }

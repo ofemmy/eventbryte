@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EventController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -17,3 +18,4 @@ use Inertia\Inertia;
 Route::get('/', function () {
     return Inertia::render('Welcome',['name'=>'Oladayo']);
 });
+Route::resource('events', EventController::class);
