@@ -16,6 +16,6 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return Inertia::render('Welcome',['name'=>'Oladayo']);
+    return Inertia::render('Index',['name'=>'Oladayo']);
 });
 Route::resource('events', EventController::class);

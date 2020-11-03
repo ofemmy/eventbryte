@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "js/" + ({}[chunkId]||chunkId) + ".js?id=" + {"0":"d6ca87b01ed124f35e09","1":"6aecc4af4433dc4295e2","2":"8768442475383c4e7e37","3":"50d4acc0533633e1d218"}[chunkId] + ""
+/******/ 		return __webpack_require__.p + "js/" + ({}[chunkId]||chunkId) + ".js?id=" + {"0":"d6ca87b01ed124f35e09","1":"5e51b446f1ad4c615395","2":"5513c947d2d2634950b1","3":"a619f4218c1f62fc626f"}[chunkId] + ""
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -82503,32 +82503,32 @@ var map = {
 	"./Event/Details": [
 		"./resources/js/Pages/Event/Details.js",
 		0,
-		1
+		2
 	],
 	"./Event/Details.js": [
 		"./resources/js/Pages/Event/Details.js",
 		0,
-		1
+		2
 	],
 	"./Event/Index": [
 		"./resources/js/Pages/Event/Index.js",
 		0,
-		2
+		3
 	],
 	"./Event/Index.js": [
 		"./resources/js/Pages/Event/Index.js",
 		0,
-		2
-	],
-	"./Welcome": [
-		"./resources/js/Pages/Welcome.js",
-		0,
 		3
 	],
-	"./Welcome.js": [
-		"./resources/js/Pages/Welcome.js",
+	"./Index": [
+		"./resources/js/Pages/Index.js",
 		0,
-		3
+		1
+	],
+	"./Index.js": [
+		"./resources/js/Pages/Index.js",
+		0,
+		1
 	]
 };
 function webpackAsyncContext(req) {
@@ -82587,14 +82587,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 _inertiajs_progress__WEBPACK_IMPORTED_MODULE_3__["InertiaProgress"].init();
 var el = document.getElementById('app');
-var colors = {
-  'light-gray': "#f7fafa",
-  'primary': "#5A0001"
-};
 var customTheme = Object(_chakra_ui_core__WEBPACK_IMPORTED_MODULE_4__["extendTheme"])({
-  colors: colors
+  colors: {
+    'light-gray': "#f7fafa",
+    'primary': "#5A0001"
+  }
 });
 Object(react_dom__WEBPACK_IMPORTED_MODULE_2__["render"])( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_chakra_ui_core__WEBPACK_IMPORTED_MODULE_4__["ChakraProvider"], {
   theme: customTheme
