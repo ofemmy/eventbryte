@@ -15,7 +15,7 @@ const Navbar = props => {
             <Box align="center" mr={5}>
                 <Heading as="h2" size="lg" letterSpacing={"-.1rem"}>
                     <Box as="span">event</Box>
-                    <Box as="span" color="red.400">
+                    <Box as="span" color="primary">
                         bryte
                     </Box>
                 </Heading>

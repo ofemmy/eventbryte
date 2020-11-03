@@ -3,7 +3,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import { InertiaProgress } from '@inertiajs/progress'
 import {ChakraProvider, extendTheme} from "@chakra-ui/core"
-import { mode } from "@chakra-ui/core"
+
 
 InertiaProgress.init()
 
@@ -13,11 +13,10 @@ const el = document.getElementById('app')
 const customTheme= extendTheme({
     colors:{
     'light-gray':"#f7fafa",
-    'primary':"#5A0001"
+    'primary':"#F56565",
+    'primary-dark':"#F24343"
     }
 })
-
-
 
 
 render(

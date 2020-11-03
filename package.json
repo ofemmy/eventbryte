@@ -27,6 +27,7 @@
         "@inertiajs/inertia": "^0.6.1",
         "@inertiajs/inertia-react": "^0.4.1",
         "@inertiajs/progress": "^0.2.1",
-        "framer-motion": "^2.9.4"
+        "framer-motion": "^2.9.4",
+        "react-icons": "^3.11.0"
     }
 }

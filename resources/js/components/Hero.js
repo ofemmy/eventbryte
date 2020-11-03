@@ -23,7 +23,7 @@ const Hero = () => {
                     <Heading>
                         {" "}
                         your <br /> one-{" "}
-                        <Box as="span" color="red.400">
+                        <Box as="span" color="primary">
                             stop
                         </Box>
                         -shop

@@ -26,6 +26,7 @@ class EventFactory extends Factory
             'title'=>$this->faker->sentence,
             'description'=>$this->faker->text,
             'imageUrl'=>$this->faker->imageUrl($width = 640, $height = 480),
+            'price'=>$this->faker->randomFloat($nbMaxDecimals = 2, $min = 0, $max = 300),
             'address-line1'=>$this->faker->streetAddress,
             'zipcode'=>$this->faker->postcode,
             'city'=>$this->faker->city,

@@ -26,7 +26,6 @@ const Index = ({events}) => {
                             <InertiaLink href={event.detailsUrl}>{event.title}</InertiaLink>
 
                         </Box>
-                        ˙
                     </Box>
                 ))}
             </SimpleGrid>

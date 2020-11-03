@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "js/" + ({}[chunkId]||chunkId) + ".js?id=" + {"0":"d6ca87b01ed124f35e09","1":"5e51b446f1ad4c615395","2":"5513c947d2d2634950b1","3":"a619f4218c1f62fc626f"}[chunkId] + ""
+/******/ 		return __webpack_require__.p + "js/" + ({}[chunkId]||chunkId) + ".js?id=" + {"0":"d6ca87b01ed124f35e09","1":"0ca7428d1592f16a3965","2":"11c0b8b56a4f72504ba3","3":"9474ef5526e201bf1f8e","4":"6929796a3d50085c8a76"}[chunkId] + ""
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -82523,12 +82523,14 @@ var map = {
 	"./Index": [
 		"./resources/js/Pages/Index.js",
 		0,
-		1
+		1,
+		4
 	],
 	"./Index.js": [
 		"./resources/js/Pages/Index.js",
 		0,
-		1
+		1,
+		4
 	]
 };
 function webpackAsyncContext(req) {
@@ -82587,13 +82589,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 _inertiajs_progress__WEBPACK_IMPORTED_MODULE_3__["InertiaProgress"].init();
 var el = document.getElementById('app');
 var customTheme = Object(_chakra_ui_core__WEBPACK_IMPORTED_MODULE_4__["extendTheme"])({
   colors: {
     'light-gray': "#f7fafa",
-    'primary': "#5A0001"
+    'primary': "#F56565",
+    'primary-dark': "#F24343"
   }
 });
 Object(react_dom__WEBPACK_IMPORTED_MODULE_2__["render"])( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_chakra_ui_core__WEBPACK_IMPORTED_MODULE_4__["ChakraProvider"], {
