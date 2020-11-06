@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Inertia } from "@inertiajs/inertia";
 import { Flex } from "@chakra-ui/core";
 import {
     AiOutlineDoubleLeft,
@@ -9,9 +10,21 @@ import {
 import PageBox from "./PageBox";
 import { range } from "../utils";
 
-const Pagination = ({ defaultActivePage, totalPages }) => {
+const Pagination = ({paginationData}) => {
+    const {
+            activePage,
+            totalRecord,
+            recordPerPage,
+            firstPageUrl,
+            lastPageUrl,
+            prevPageUrl,
+            nextPageUrl,
+           baseUrl,
+           lastPage
+        } = paginationData
+   const totalPages=Math.ceil(totalRecord/recordPerPage)
     const [currentPage, setCurrentPage] = useState(
-        Math.min(defaultActivePage, totalPages)
+        Math.min(activePage, totalPages)
     );
     const [pages, setPages] = useState([]);
     const MINIMUM_PAGE_BEFORE_SPLIT = 5;
@@ -51,35 +64,68 @@ const Pagination = ({ defaultActivePage, totalPages }) => {
                 break;
         }
     }, [currentPage]);
+
+    const pageChangeHandler = con => {
+        setCurrentPage(con);
+        Inertia.get(encodeURI(`${baseUrl}?page=${con}`), {
+            preserveScroll: true,
+            preserveState:true
+        });
+
+    };
+    const goToFirstPage=()=>{
+        if (activePage !=1) {
+            Inertia.get(encodeURI(firstPageUrl), {
+                preserveScroll: true
+            });
+        }
+    }
+    const goToLastPage=()=>{
+        if (activePage!=lastPage) {
+            Inertia.get(encodeURI(lastPageUrl), {
+                preserveScroll: true
+            });
+        }
+
+    }
+    const goToPrevpage=()=>{
+        if (activePage!=1) {
+            setCurrentPage(Math.max(currentPage - 1, START_PAGE))
+            Inertia.get(encodeURI(prevPageUrl))
+        }
+
+    }
+    const goToNextPage=()=>{
+        if (activePage!=lastPage) {
+            setCurrentPage(Math.min(currentPage + 1, LAST_PAGE))
+            Inertia.get(encodeURI(nextPageUrl))
+        }
+    }
     return (
         <Flex justify="flex-end">
             <PageBox
                 content={<AiOutlineDoubleLeft />}
-                clickfn={() => setCurrentPage(START_PAGE)}
+                clickfn={goToFirstPage}
             />
             <PageBox
                 content={<AiOutlineLeft />}
-                clickfn={() =>
-                    setCurrentPage(Math.max(currentPage - 1, START_PAGE))
-                }
+                clickfn={goToPrevpage}
             />
             {pages.map((content, idx) => (
                 <PageBox
                     content={content}
                     active={content === currentPage}
                     key={idx}
-                    clickfn={setCurrentPage}
+                    clickfn={() => pageChangeHandler(content)}
                 />
             ))}
             <PageBox
                 content={<AiOutlineRight />}
-                clickfn={() =>
-                    setCurrentPage(Math.min(currentPage + 1, LAST_PAGE))
-                }
+                clickfn={goToNextPage}
             />
             <PageBox
                 content={<AiOutlineDoubleRight />}
-                clickfn={() => setCurrentPage(LAST_PAGE)}
+                clickfn={goToLastPage}
             />
         </Flex>
     );

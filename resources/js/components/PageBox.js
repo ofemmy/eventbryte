@@ -1,4 +1,5 @@
 import React from "react"
+import { Inertia } from '@inertiajs/inertia'
 import {Flex} from "@chakra-ui/core"
 const PageBox = ({ content,active,clickfn}) => {
     const clickHandler2 = () => {
@@ -6,6 +7,7 @@ const PageBox = ({ content,active,clickfn}) => {
             return;
         } else {
             clickfn(content);
+            Inertia.get(`http://localhost:8000?page=${content}`)
         }
     };
     return (
@@ -23,7 +25,7 @@ const PageBox = ({ content,active,clickfn}) => {
             bg={active ? "primary" : "white"}
             borderColor="#ccc"
             _hover={{ bg: active ? "primary" : "#ebedf0", cursor: "pointer" }}
-            onClick={clickHandler2}
+            onClick={clickfn}
         >
             {content}
         </Flex>

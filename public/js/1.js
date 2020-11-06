@@ -25,7 +25,18 @@ __webpack_require__.r(__webpack_exports__);
 
 function Index(_ref) {
   var events = _ref.events;
-  console.log(events[0]);
+  var paginationData = {
+    firstPageUrl: events.first_page_url,
+    lastPageUrl: events.last_page_url,
+    lastPageNum: events.last_page,
+    prevPageUrl: events.prev_page_url,
+    nextPageUrl: events.next_page_url,
+    baseUrl: events.path,
+    activePage: events.current_page,
+    totalRecord: events.total,
+    recordPerPage: events.per_page,
+    lastPage: events.last_page
+  };
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_shared_Layout__WEBPACK_IMPORTED_MODULE_3__["default"], {
     title: "Home"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Hero__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_chakra_ui_core__WEBPACK_IMPORTED_MODULE_1__["Container"], {
@@ -39,7 +50,7 @@ function Index(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_chakra_ui_core__WEBPACK_IMPORTED_MODULE_1__["SimpleGrid"], {
     minChildWidth: "300px",
     spacing: "40px"
-  }, events.map(function (event) {
+  }, events.data.map(function (event) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_EventCard__WEBPACK_IMPORTED_MODULE_4__["default"], {
       event: event,
       key: event.id
@@ -48,8 +59,7 @@ function Index(_ref) {
     maxWidth: "1200px",
     mt: 6
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Pagination__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    defaultActivePage: 3,
-    totalPages: 8
+    paginationData: paginationData
   })));
 }
 
@@ -305,7 +315,10 @@ var Navbar = function Navbar(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _chakra_ui_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @chakra-ui/core */ "./node_modules/@chakra-ui/core/dist/esm/index.js");
+/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
+/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _chakra_ui_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @chakra-ui/core */ "./node_modules/@chakra-ui/core/dist/esm/index.js");
+
 
 
 
@@ -319,10 +332,11 @@ var PageBox = function PageBox(_ref) {
       return;
     } else {
       clickfn(content);
+      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__["Inertia"].get("http://localhost:8000?page=".concat(content));
     }
   };
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_chakra_ui_core__WEBPACK_IMPORTED_MODULE_1__["Flex"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_chakra_ui_core__WEBPACK_IMPORTED_MODULE_2__["Flex"], {
     justify: "center",
     align: "center",
     as: "button",
@@ -341,7 +355,7 @@ var PageBox = function PageBox(_ref) {
       bg: active ? "primary" : "#ebedf0",
       cursor: "pointer"
     },
-    onClick: clickHandler2
+    onClick: clickfn
   }, content);
 };
 
@@ -360,10 +374,12 @@ var PageBox = function PageBox(_ref) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _chakra_ui_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @chakra-ui/core */ "./node_modules/@chakra-ui/core/dist/esm/index.js");
-/* harmony import */ var react_icons_ai__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-icons/ai */ "./node_modules/react-icons/ai/index.esm.js");
-/* harmony import */ var _PageBox__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./PageBox */ "./resources/js/components/PageBox.js");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils */ "./resources/js/utils/index.js");
+/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
+/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _chakra_ui_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @chakra-ui/core */ "./node_modules/@chakra-ui/core/dist/esm/index.js");
+/* harmony import */ var react_icons_ai__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-icons/ai */ "./node_modules/react-icons/ai/index.esm.js");
+/* harmony import */ var _PageBox__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./PageBox */ "./resources/js/components/PageBox.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils */ "./resources/js/utils/index.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -390,11 +406,21 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-var Pagination = function Pagination(_ref) {
-  var defaultActivePage = _ref.defaultActivePage,
-      totalPages = _ref.totalPages;
 
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(Math.min(defaultActivePage, totalPages)),
+var Pagination = function Pagination(_ref) {
+  var paginationData = _ref.paginationData;
+  var activePage = paginationData.activePage,
+      totalRecord = paginationData.totalRecord,
+      recordPerPage = paginationData.recordPerPage,
+      firstPageUrl = paginationData.firstPageUrl,
+      lastPageUrl = paginationData.lastPageUrl,
+      prevPageUrl = paginationData.prevPageUrl,
+      nextPageUrl = paginationData.nextPageUrl,
+      baseUrl = paginationData.baseUrl,
+      lastPage = paginationData.lastPage;
+  var totalPages = Math.ceil(totalRecord / recordPerPage);
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(Math.min(activePage, totalPages)),
       _useState2 = _slicedToArray(_useState, 2),
       currentPage = _useState2[0],
       setCurrentPage = _useState2[1];
@@ -416,54 +442,87 @@ var Pagination = function Pagination(_ref) {
 
     switch (true) {
       case hasNoSpill:
-        setPages(Object(_utils__WEBPACK_IMPORTED_MODULE_4__["range"])(1, totalPages));
+        setPages(Object(_utils__WEBPACK_IMPORTED_MODULE_5__["range"])(1, totalPages));
         break;
 
       case hasLeftSpill:
-        setPages([1, "..."].concat(_toConsumableArray(Object(_utils__WEBPACK_IMPORTED_MODULE_4__["range"])(totalPages - 4, totalPages))));
+        setPages([1, "..."].concat(_toConsumableArray(Object(_utils__WEBPACK_IMPORTED_MODULE_5__["range"])(totalPages - 4, totalPages))));
         break;
 
       case hasBothSpill:
-        setPages([1, "..."].concat(_toConsumableArray(Object(_utils__WEBPACK_IMPORTED_MODULE_4__["range"])(currentPage - 1, currentPage + 1)), ["...", totalPages]));
+        setPages([1, "..."].concat(_toConsumableArray(Object(_utils__WEBPACK_IMPORTED_MODULE_5__["range"])(currentPage - 1, currentPage + 1)), ["...", totalPages]));
         break;
 
       case hasRightSpill:
-        setPages([].concat(_toConsumableArray(Object(_utils__WEBPACK_IMPORTED_MODULE_4__["range"])(1, 5)), ["...", totalPages]));
+        setPages([].concat(_toConsumableArray(Object(_utils__WEBPACK_IMPORTED_MODULE_5__["range"])(1, 5)), ["...", totalPages]));
         break;
 
       default:
         break;
     }
   }, [currentPage]);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_chakra_ui_core__WEBPACK_IMPORTED_MODULE_1__["Flex"], {
+
+  var pageChangeHandler = function pageChangeHandler(con) {
+    setCurrentPage(con);
+    _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__["Inertia"].get(encodeURI("".concat(baseUrl, "?page=").concat(con)), {
+      preserveScroll: true,
+      preserveState: true
+    });
+  };
+
+  var goToFirstPage = function goToFirstPage() {
+    if (activePage != 1) {
+      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__["Inertia"].get(encodeURI(firstPageUrl), {
+        preserveScroll: true
+      });
+    }
+  };
+
+  var goToLastPage = function goToLastPage() {
+    if (activePage != lastPage) {
+      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__["Inertia"].get(encodeURI(lastPageUrl), {
+        preserveScroll: true
+      });
+    }
+  };
+
+  var goToPrevpage = function goToPrevpage() {
+    if (activePage != 1) {
+      setCurrentPage(Math.max(currentPage - 1, START_PAGE));
+      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__["Inertia"].get(encodeURI(prevPageUrl));
+    }
+  };
+
+  var goToNextPage = function goToNextPage() {
+    if (activePage != lastPage) {
+      setCurrentPage(Math.min(currentPage + 1, LAST_PAGE));
+      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__["Inertia"].get(encodeURI(nextPageUrl));
+    }
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_chakra_ui_core__WEBPACK_IMPORTED_MODULE_2__["Flex"], {
     justify: "flex-end"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PageBox__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    content: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_icons_ai__WEBPACK_IMPORTED_MODULE_2__["AiOutlineDoubleLeft"], null),
-    clickfn: function clickfn() {
-      return setCurrentPage(START_PAGE);
-    }
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PageBox__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    content: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_icons_ai__WEBPACK_IMPORTED_MODULE_2__["AiOutlineLeft"], null),
-    clickfn: function clickfn() {
-      return setCurrentPage(Math.max(currentPage - 1, START_PAGE));
-    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PageBox__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    content: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_icons_ai__WEBPACK_IMPORTED_MODULE_3__["AiOutlineDoubleLeft"], null),
+    clickfn: goToFirstPage
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PageBox__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    content: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_icons_ai__WEBPACK_IMPORTED_MODULE_3__["AiOutlineLeft"], null),
+    clickfn: goToPrevpage
   }), pages.map(function (content, idx) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PageBox__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PageBox__WEBPACK_IMPORTED_MODULE_4__["default"], {
       content: content,
       active: content === currentPage,
       key: idx,
-      clickfn: setCurrentPage
+      clickfn: function clickfn() {
+        return pageChangeHandler(content);
+      }
     });
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PageBox__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    content: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_icons_ai__WEBPACK_IMPORTED_MODULE_2__["AiOutlineRight"], null),
-    clickfn: function clickfn() {
-      return setCurrentPage(Math.min(currentPage + 1, LAST_PAGE));
-    }
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PageBox__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    content: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_icons_ai__WEBPACK_IMPORTED_MODULE_2__["AiOutlineDoubleRight"], null),
-    clickfn: function clickfn() {
-      return setCurrentPage(LAST_PAGE);
-    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PageBox__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    content: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_icons_ai__WEBPACK_IMPORTED_MODULE_3__["AiOutlineRight"], null),
+    clickfn: goToNextPage
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PageBox__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    content: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_icons_ai__WEBPACK_IMPORTED_MODULE_3__["AiOutlineDoubleRight"], null),
+    clickfn: goToLastPage
   }));
 };
 
