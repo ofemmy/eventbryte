@@ -153,8 +153,7 @@ function Layout(_ref) {
     as: "main",
     bg: "gray.50",
     h: "100%",
-    w: "100%",
-    py: 16
+    w: "100%"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, children));
 }
 

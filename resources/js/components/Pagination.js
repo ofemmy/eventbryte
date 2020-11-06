@@ -65,13 +65,14 @@ const Pagination = ({paginationData}) => {
         }
     }, [currentPage]);
 
-    const pageChangeHandler = con => {
-        setCurrentPage(con);
-        Inertia.get(encodeURI(`${baseUrl}?page=${con}`), {
+    const pageChangeHandler = page => {
+        if (page!=="...") {
+            setCurrentPage(page);
+        Inertia.get(encodeURI(`${baseUrl}?page=${page}`), {
             preserveScroll: true,
             preserveState:true
         });
-
+        }
     };
     const goToFirstPage=()=>{
         if (activePage !=1) {
@@ -104,27 +105,27 @@ const Pagination = ({paginationData}) => {
     return (
         <Flex justify="flex-end">
             <PageBox
-                content={<AiOutlineDoubleLeft />}
+                page={<AiOutlineDoubleLeft />}
                 clickfn={goToFirstPage}
             />
             <PageBox
-                content={<AiOutlineLeft />}
+                page={<AiOutlineLeft />}
                 clickfn={goToPrevpage}
             />
-            {pages.map((content, idx) => (
+            {pages.map((page, idx) => (
                 <PageBox
-                    content={content}
-                    active={content === currentPage}
+                    page={page}
+                    active={page === currentPage}
                     key={idx}
-                    clickfn={() => pageChangeHandler(content)}
+                    clickfn={() => pageChangeHandler(page)}
                 />
             ))}
             <PageBox
-                content={<AiOutlineRight />}
+                page={<AiOutlineRight />}
                 clickfn={goToNextPage}
             />
             <PageBox
-                content={<AiOutlineDoubleRight />}
+                page={<AiOutlineDoubleRight />}
                 clickfn={goToLastPage}
             />
         </Flex>

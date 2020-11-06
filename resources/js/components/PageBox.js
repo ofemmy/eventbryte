@@ -1,13 +1,13 @@
 import React from "react"
 import { Inertia } from '@inertiajs/inertia'
 import {Flex} from "@chakra-ui/core"
-const PageBox = ({ content,active,clickfn}) => {
+const PageBox = ({ page,active,clickfn}) => {
     const clickHandler2 = () => {
-        if (content === "...") {
+        if (page === "...") {
             return;
         } else {
-            clickfn(content);
-            Inertia.get(`http://localhost:8000?page=${content}`)
+            clickfn(page);
+            Inertia.get(`http://localhost:8000?page=${page}`)
         }
     };
     return (
@@ -27,7 +27,7 @@ const PageBox = ({ content,active,clickfn}) => {
             _hover={{ bg: active ? "primary" : "#ebedf0", cursor: "pointer" }}
             onClick={clickfn}
         >
-            {content}
+            {page}
         </Flex>
     );
 };

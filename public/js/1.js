@@ -57,7 +57,7 @@ function Index(_ref) {
     });
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_chakra_ui_core__WEBPACK_IMPORTED_MODULE_1__["Container"], {
     maxWidth: "1200px",
-    mt: 6
+    my: 6
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Pagination__WEBPACK_IMPORTED_MODULE_5__["default"], {
     paginationData: paginationData
   })));
@@ -323,16 +323,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var PageBox = function PageBox(_ref) {
-  var content = _ref.content,
+  var page = _ref.page,
       active = _ref.active,
       clickfn = _ref.clickfn;
 
   var clickHandler2 = function clickHandler2() {
-    if (content === "...") {
+    if (page === "...") {
       return;
     } else {
-      clickfn(content);
-      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__["Inertia"].get("http://localhost:8000?page=".concat(content));
+      clickfn(page);
+      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__["Inertia"].get("http://localhost:8000?page=".concat(page));
     }
   };
 
@@ -356,7 +356,7 @@ var PageBox = function PageBox(_ref) {
       cursor: "pointer"
     },
     onClick: clickfn
-  }, content);
+  }, page);
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (PageBox);
@@ -462,12 +462,14 @@ var Pagination = function Pagination(_ref) {
     }
   }, [currentPage]);
 
-  var pageChangeHandler = function pageChangeHandler(con) {
-    setCurrentPage(con);
-    _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__["Inertia"].get(encodeURI("".concat(baseUrl, "?page=").concat(con)), {
-      preserveScroll: true,
-      preserveState: true
-    });
+  var pageChangeHandler = function pageChangeHandler(page) {
+    if (page !== "...") {
+      setCurrentPage(page);
+      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__["Inertia"].get(encodeURI("".concat(baseUrl, "?page=").concat(page)), {
+        preserveScroll: true,
+        preserveState: true
+      });
+    }
   };
 
   var goToFirstPage = function goToFirstPage() {
@@ -503,25 +505,25 @@ var Pagination = function Pagination(_ref) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_chakra_ui_core__WEBPACK_IMPORTED_MODULE_2__["Flex"], {
     justify: "flex-end"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PageBox__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    content: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_icons_ai__WEBPACK_IMPORTED_MODULE_3__["AiOutlineDoubleLeft"], null),
+    page: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_icons_ai__WEBPACK_IMPORTED_MODULE_3__["AiOutlineDoubleLeft"], null),
     clickfn: goToFirstPage
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PageBox__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    content: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_icons_ai__WEBPACK_IMPORTED_MODULE_3__["AiOutlineLeft"], null),
+    page: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_icons_ai__WEBPACK_IMPORTED_MODULE_3__["AiOutlineLeft"], null),
     clickfn: goToPrevpage
-  }), pages.map(function (content, idx) {
+  }), pages.map(function (page, idx) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PageBox__WEBPACK_IMPORTED_MODULE_4__["default"], {
-      content: content,
-      active: content === currentPage,
+      page: page,
+      active: page === currentPage,
       key: idx,
       clickfn: function clickfn() {
-        return pageChangeHandler(content);
+        return pageChangeHandler(page);
       }
     });
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PageBox__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    content: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_icons_ai__WEBPACK_IMPORTED_MODULE_3__["AiOutlineRight"], null),
+    page: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_icons_ai__WEBPACK_IMPORTED_MODULE_3__["AiOutlineRight"], null),
     clickfn: goToNextPage
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PageBox__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    content: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_icons_ai__WEBPACK_IMPORTED_MODULE_3__["AiOutlineDoubleRight"], null),
+    page: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_icons_ai__WEBPACK_IMPORTED_MODULE_3__["AiOutlineDoubleRight"], null),
     clickfn: goToLastPage
   }));
 };
@@ -557,8 +559,7 @@ function Layout(_ref) {
     as: "main",
     bg: "gray.50",
     h: "100%",
-    w: "100%",
-    py: 16
+    w: "100%"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, children));
 }
 

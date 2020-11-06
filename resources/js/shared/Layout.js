@@ -8,7 +8,7 @@ export default function Layout({ title, children }) {
   }, [title])
 
   return (
-    <Box as="main" bg="gray.50" h="100%" w="100%" py={16}>
+    <Box as="main" bg="gray.50" h="100%" w="100%">
         <Navbar/>
         <div>{children}</div>
     </Box>

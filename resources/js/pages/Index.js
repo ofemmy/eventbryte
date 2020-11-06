@@ -7,7 +7,7 @@ import EventCard from "../components/EventCard";
 import Pagination from "../components/Pagination";
 
 export default function Index({ events }) {
-    
+
     const paginationData={
         firstPageUrl:events.first_page_url,
         lastPageUrl:events.last_page_url,
@@ -39,7 +39,7 @@ export default function Index({ events }) {
                 </SimpleGrid>
 
             </Container>
-            <Container maxWidth="1200px" mt={6}>
+            <Container maxWidth="1200px" my={6}>
             <Pagination
             paginationData={paginationData}
             />
