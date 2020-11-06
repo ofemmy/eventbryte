@@ -12,7 +12,7 @@ const Navbar = props => {
             align="center"
             justify="space-between"
         >
-            <Box align="center" mr={5}>
+            <Box align="center" mr={7}>
                 <Heading as="h2" size="lg" letterSpacing={"-.1rem"}>
                     <Box as="span">event</Box>
                     <Box as="span" color="primary">

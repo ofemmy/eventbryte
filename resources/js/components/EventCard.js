@@ -41,7 +41,7 @@ const EventCard = ({ event }) => {
         Inertia.get(event.detailsUrl);
     };
     return (
-        <Box height="350px" overflow="hidden" shadow="sm" bg="white">
+        <Box height="370px" overflow="hidden" shadow="sm" bg="white">
             <Box height="180px" overflow="hidden" position="relative">
                 <Image
                     src={
@@ -70,7 +70,7 @@ const EventCard = ({ event }) => {
                     {event.title}
                 </Box>
                 <Box>
-                    <Text fontSize="md">
+                    <Text fontSize="sm">
                         {formatDateToString(event.startDate)}
                     </Text>
                 </Box>

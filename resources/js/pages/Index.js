@@ -4,6 +4,7 @@ import { Container, Heading, Divider, Box, SimpleGrid } from "@chakra-ui/core";
 import Hero from "../components/Hero";
 import Layout from "../shared/Layout";
 import EventCard from "../components/EventCard";
+import Pagination from "../components/Pagination";
 
 export default function Index({ events }) {
     console.log(events[0])
@@ -23,6 +24,10 @@ export default function Index({ events }) {
                         <EventCard event={event} key={event.id}/>
                     ))}
                 </SimpleGrid>
+
+            </Container>
+            <Container maxWidth="1200px" mt={6}>
+            <Pagination defaultActivePage={3} totalPages={8}/>
             </Container>
         </Layout>
     );
