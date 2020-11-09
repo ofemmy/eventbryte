@@ -1,13 +1,12 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { Container, Heading, Divider, Box, SimpleGrid } from "@chakra-ui/core";
-
+import {usePage} from "@inertiajs/inertia-react"
 import Hero from "../components/Hero";
 import Layout from "../shared/Layout";
 import EventCard from "../components/EventCard";
 import Pagination from "../components/Pagination";
 
-export default function Index({ events }) {
-
+export default function Index({ events,...rest }) {
     const paginationData={
         firstPageUrl:events.first_page_url,
         lastPageUrl:events.last_page_url,
@@ -20,6 +19,7 @@ export default function Index({ events }) {
         recordPerPage:events.per_page,
         lastPage:events.last_page
     }
+  
 
     return (
         <Layout title="Home">

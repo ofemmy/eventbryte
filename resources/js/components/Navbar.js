@@ -1,9 +1,18 @@
-import React from "react";
-import { InertiaLink } from "@inertiajs/inertia-react";
+import React,{useEffect,useState} from "react";
+import { InertiaLink,usePage } from "@inertiajs/inertia-react";
 import { Box, Button, Flex, Heading, InputGroup,Input, InputLeftElement, Spacer } from "@chakra-ui/core";
 import { SearchIcon } from "@chakra-ui/icons";
+import { Inertia } from "@inertiajs/inertia";
 
 const Navbar = props => {
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
+    const {user}=usePage().props
+    useEffect(() => {
+        user?setIsLoggedIn(true):setIsLoggedIn(false)
+    }, [user])
+    const handleClick=()=>{
+        isLoggedIn ? Inertia.post("/logout") : Inertia.get("/login")
+    }
     return (
         <Flex
             as="nav"
@@ -36,8 +45,11 @@ const Navbar = props => {
                 <Button variant="outline" colorScheme="red" mr={2}>
                     <InertiaLink href="/about">Create Event</InertiaLink>
                 </Button>
-                <Button>
-                    <InertiaLink href="/login">Sign in</InertiaLink>
+                <Button onClick={handleClick}>
+                {
+                    isLoggedIn?"Sign out":"Sign in"
+                }
+
                 </Button>
             </Flex>
         </Flex>

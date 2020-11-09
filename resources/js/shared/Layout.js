@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import {usePage} from "@inertiajs/inertia-react"
 import { Box, Flex } from '@chakra-ui/core';
 import Navbar from '../components/Navbar';
 
