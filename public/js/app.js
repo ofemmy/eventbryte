@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "js/" + ({}[chunkId]||chunkId) + ".js?id=" + {"0":"d6ca87b01ed124f35e09","1":"f61e40101d87ed59f63f","2":"8bd907db2130c96bd9fb","3":"8091006b1964f510dfa7","4":"a87c41b6658cc7b03a43"}[chunkId] + ""
+/******/ 		return __webpack_require__.p + "js/" + ({}[chunkId]||chunkId) + ".js?id=" + {"0":"d6ca87b01ed124f35e09","1":"39a6a1f10a627388d01e","2":"8bd907db2130c96bd9fb","3":"09405c57a4ffc4cf47e8","4":"94ff1474096d5d9c87c5","6":"e9cb235adb7c8f6eccb1","7":"e3bfa5251e897cf146e7"}[chunkId] + ""
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -82531,6 +82531,18 @@ var map = {
 		0,
 		2,
 		1
+	],
+	"./Login": [
+		"./resources/js/Pages/Login.js",
+		0,
+		6,
+		7
+	],
+	"./Login.js": [
+		"./resources/js/Pages/Login.js",
+		0,
+		6,
+		7
 	]
 };
 function webpackAsyncContext(req) {
@@ -82606,8 +82618,7 @@ Object(react_dom__WEBPACK_IMPORTED_MODULE_2__["render"])( /*#__PURE__*/react__WE
     return __webpack_require__("./resources/js/Pages lazy recursive ^\\.\\/.*$")("./".concat(name)).then(function (module) {
       return module["default"];
     });
-  } //resolveComponent={name => require(`./Pages/${name}`).default}
-
+  }
 })), el);
 
 /***/ }),

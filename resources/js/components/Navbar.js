@@ -37,7 +37,7 @@ const Navbar = props => {
                     <InertiaLink href="/about">Create Event</InertiaLink>
                 </Button>
                 <Button>
-                    <InertiaLink href="/contact">Sign in</InertiaLink>
+                    <InertiaLink href="/login">Sign in</InertiaLink>
                 </Button>
             </Flex>
         </Flex>
