@@ -1,4 +1,5 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
+import { isEmpty } from "lodash";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { object, string, ref } from "yup";
@@ -10,10 +11,20 @@ import {
     FormLabel,
     Input,
     HStack,
+    Text,
     Button,
     FormErrorIcon,
-    FormErrorMessage
+    FormErrorMessage,
+    InputGroup,
+    InputRightElement,
 } from "@chakra-ui/core";
+import {
+    ViewIcon,
+    ViewOffIcon,
+    InfoIcon
+} from "@chakra-ui/icons";
+import { Inertia } from "@inertiajs/inertia";
+import { InertiaLink } from "@inertiajs/inertia-react";
 const schema = object().shape({
     firstname: string().required("First name is required"),
     lastname: string().required("Last name is required"),
@@ -21,16 +32,26 @@ const schema = object().shape({
         .email("Please enter a valid email")
         .required("Email is required"),
     password: string().required("Password cannot be empty"),
-    confirmpassword: string().oneOf(
+    password_confirmation: string().oneOf(
         [ref("password"), null],
         "Passwords must match"
     )
 });
-const Register = () => {
+const Register = (props) => {
+    const [showPassword, setShowPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+    const [hasError, setHasError] = useState(false);
+    useEffect(() => {
+        setHasError(!isEmpty(props.errors));
+        document.title = "Register";
+    }, [props.errors]);
+
     const { register, errors, handleSubmit } = useForm({
         resolver: yupResolver(schema)
     });
-    const submitData = data => console.log(data);
+    const submitData = (data) => {
+        Inertia.post("/register",data)
+    };
     return (
         <Flex
             as="main"
@@ -55,22 +76,33 @@ const Register = () => {
                 <Heading mx="auto" color="gray.800">
                     Register
                 </Heading>
+                {hasError ? (
+                        <HStack spacing={1} mt={2} color="red.600">
+                            <InfoIcon />
+                            <Text color="red.600">
+                                Email or password incorrect
+                            </Text>
+                        </HStack>
+                    ) : null}
 
                 <FormControl isRequired mb={4} isInvalid={errors.email}>
                     <FormLabel>Email</FormLabel>
-                    <Input
-                        placeholder="Enter Email"
-                        name="email"
-                        ref={register}
-                        type="email"
-                    />
+                    <InputGroup>
+                        <Input
+                            placeholder="Enter Email"
+                            name="email"
+                            ref={register}
+                            type="email"
+                        />
+                        <InputRightElement
+                            pointerEvents="none"
+                            children={<FormErrorIcon color="red.500" />}
+                        />
+                    </InputGroup>
                     {!!errors.email ? (
-                        <HStack spacing={1} mt={2}>
-                            <FormErrorIcon />
-                            <FormErrorMessage>
-                                {errors.email.message}
-                            </FormErrorMessage>
-                        </HStack>
+                        <FormErrorMessage mt={2}>
+                            {errors.email.message}
+                        </FormErrorMessage>
                     ) : null}
                 </FormControl>
                 <HStack spacing={4} mb={4}>
@@ -80,19 +112,23 @@ const Register = () => {
                         isInvalid={errors.firstname}
                     >
                         <FormLabel>First name</FormLabel>
-                        <Input
-                            placeholder="First name"
-                            name="first-name"
-                            ref={register}
-                        />
-                         {!!errors.firstname ? (
-                        <HStack spacing={1} mt={2}>
-                            <FormErrorIcon />
+                        <InputGroup>
+                            <Input
+                                placeholder="First name"
+                                name="firstname"
+                                ref={register}
+                            />
+                            <InputRightElement
+                                pointerEvents="none"
+                                children={<FormErrorIcon color="red.500" />}
+                            />
+                        </InputGroup>
+
+                        {!!errors.firstname ? (
                             <FormErrorMessage>
                                 {errors.firstname.message}
                             </FormErrorMessage>
-                        </HStack>
-                    ) : null}
+                        ) : null}
                     </FormControl>
                     <FormControl
                         id="last-name"
@@ -100,19 +136,23 @@ const Register = () => {
                         isInvalid={errors.lastname}
                     >
                         <FormLabel>Last name</FormLabel>
-                        <Input
-                            placeholder="Last name"
-                            name="lastname"
-                            ref={register}
-                        />
-                         {!!errors.lastname ? (
-                        <HStack spacing={1} mt={2}>
-                            <FormErrorIcon />
-                            <FormErrorMessage>
+                        <InputGroup>
+                            <Input
+                                placeholder="Last name"
+                                name="lastname"
+                                ref={register}
+                            />
+                            <InputRightElement
+                                pointerEvents="none"
+                                children={<FormErrorIcon color="red.500" />}
+                            />
+                        </InputGroup>
+
+                        {!!errors.lastname ? (
+                            <FormErrorMessage mt={2}>
                                 {errors.lastname.message}
                             </FormErrorMessage>
-                        </HStack>
-                    ) : null}
+                        ) : null}
                     </FormControl>
                 </HStack>
                 <FormControl
@@ -122,39 +162,59 @@ const Register = () => {
                     isInvalid={errors.password}
                 >
                     <FormLabel>Password</FormLabel>
-                    <Input
-                        placeholder="Enter Password"
-                        name="password"
-                        ref={register}
-                    />
-                     {!!errors.password ? (
-                        <HStack spacing={1} mt={2}>
-                            <FormErrorIcon />
-                            <FormErrorMessage>
-                                {errors.password.message}
-                            </FormErrorMessage>
-                        </HStack>
+                    <InputGroup>
+                        <Input
+                            placeholder="Enter Password"
+                            name="password"
+                            type={showPassword ? "text" : "password"}
+                            ref={register}
+                        />
+                        <InputRightElement>
+                                <Button
+                                    h="1.75rem"
+                                    size="sm"
+                                    onClick={() => setShowPassword(!showPassword)}
+                                >
+                                    {showPassword ? <ViewOffIcon /> : <ViewIcon />}
+                                </Button>
+                            </InputRightElement>
+                    </InputGroup>
+
+                    {!!errors.password ? (
+                        <FormErrorMessage mt={2}>
+                            {errors.password.message}
+                        </FormErrorMessage>
                     ) : null}
                 </FormControl>
                 <FormControl
-                    id="confirm-password"
+                    id="password_confirmation"
                     isRequired
                     mb={4}
                     isInvalid={errors.confirmpassword}
                 >
                     <FormLabel>Confirm Password</FormLabel>
-                    <Input
-                        placeholder="Confirm password"
-                        name="confirmpassword"
-                        ref={register}
-                    />
-                     {!!errors.confirmpassword ? (
-                        <HStack spacing={1} mt={2}>
-                            <FormErrorIcon />
-                            <FormErrorMessage>
-                                {errors.confirmpassword.message}
-                            </FormErrorMessage>
-                        </HStack>
+                    <InputGroup>
+                        <Input
+                            placeholder="Confirm password"
+                            name="password_confirmation"
+                            ref={register}
+                            type={showConfirmPassword ? "text" : "password"}
+                        />
+                       <InputRightElement>
+                                <Button
+                                    h="1.75rem"
+                                    size="sm"
+                                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                                >
+                                    {showConfirmPassword ? <ViewOffIcon /> : <ViewIcon />}
+                                </Button>
+                            </InputRightElement>
+                    </InputGroup>
+
+                    {!!errors.confirmpassword ? (
+                        <FormErrorMessage mt={2}>
+                            {errors.confirmpassword.message}
+                        </FormErrorMessage>
                     ) : null}
                 </FormControl>
                 <Button
@@ -167,11 +227,12 @@ const Register = () => {
                     Sign up
                 </Button>
                 <Button
-                    alignSelf="flex-end"
-                    variant="link"
-                    color="#0e918c"
-                >
-                    Already a user? Log in
+                 alignSelf="flex-end"
+                 color="#0e918c"
+                 variant="link">
+                   <InertiaLink href="/login">
+                        Already a user? Log in
+                   </InertiaLink>
                 </Button>
             </Flex>
         </Flex>
