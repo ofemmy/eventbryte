@@ -1,7 +1,7 @@
 import React,{useEffect,useState} from "react";
 import { InertiaLink,usePage } from "@inertiajs/inertia-react";
-import { Box, Button, Flex, Heading, InputGroup,Input, InputLeftElement, Spacer } from "@chakra-ui/core";
-import { SearchIcon } from "@chakra-ui/icons";
+import { Box, Button, Flex, Heading, InputGroup,Input, InputLeftElement, Spacer, Menu, MenuButton, Avatar, MenuList, MenuItem, MenuDivider } from "@chakra-ui/core";
+import { ChevronDownIcon, SearchIcon } from "@chakra-ui/icons";
 import { Inertia } from "@inertiajs/inertia";
 
 const Navbar = props => {
@@ -45,12 +45,28 @@ const Navbar = props => {
                 <Button variant="outline" colorScheme="red" mr={2}>
                     <InertiaLink href="/about">Create Event</InertiaLink>
                 </Button>
-                <Button onClick={handleClick}>
                 {
-                    isLoggedIn?"Sign out":"Sign in"
+                    isLoggedIn?
+                    <Menu>
+                    <MenuButton as={Button} rightIcon={<ChevronDownIcon/>}>
+                        <Avatar size="sm" name={user?.name}/>
+                    </MenuButton>
+                    <MenuList>
+                        <MenuItem>{user?.name}</MenuItem>
+                        <MenuDivider/>
+                        <MenuItem>My Events</MenuItem>
+                        <MenuItem>Liked Events</MenuItem>
+                        <MenuDivider/>
+                        <MenuItem as="button"
+                         onClick={handleClick}
+                         variant="outline"
+                         >Log out</MenuItem>
+                    </MenuList>
+                </Menu>
+                    :<Button onClick={handleClick}>
+                        Sign in
+                    </Button>
                 }
-
-                </Button>
             </Flex>
         </Flex>
     );

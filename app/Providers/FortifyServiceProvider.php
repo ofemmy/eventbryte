@@ -47,5 +47,8 @@ class FortifyServiceProvider extends ServiceProvider
                 return $user;
             }
         });
+        Fortify::registerView(function () {
+            return Inertia::render('Register');
+        });
     }
 }

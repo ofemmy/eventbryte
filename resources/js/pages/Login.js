@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import {useForm} from "react-hook-form";
-import {isEmpty} from "lodash";
-import { yupResolver } from '@hookform/resolvers/yup';
-import {object,string} from 'yup'
+import { useForm } from "react-hook-form";
+import { isEmpty } from "lodash";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { object, string } from "yup";
 import {
     Flex,
     Heading,
@@ -30,14 +30,17 @@ import {
 import { InertiaLink } from "@inertiajs/inertia-react";
 import { Inertia } from "@inertiajs/inertia";
 
-const schema=object().shape({
-    email:string().email("Please enter a valid email").required("Email cannot be empty"),
-    password:string().required("Password cannot be empty")
-
-})
+const schema = object().shape({
+    email: string()
+        .email("Please enter a valid email")
+        .required("Email cannot be empty"),
+    password: string().required("Password cannot be empty")
+});
 const Login = props => {
     const [show, setShow] = useState(false);
-    const {register,handleSubmit,errors} =useForm({resolver:yupResolver(schema)});
+    const { register, handleSubmit, errors } = useForm({
+        resolver: yupResolver(schema)
+    });
     const [hasError, setHasError] = useState(false);
 
     useEffect(() => {
@@ -46,12 +49,11 @@ const Login = props => {
     }, [props.errors]);
 
     const login = data => {
-            Inertia.post(
-                "/login",
-                data,
-            );
+        Inertia.post("/login", data);
     };
-
+    const getRegisterPage = () => {
+        Inertia.get("/register");
+    };
     return (
         <Flex
             as="main"
@@ -136,7 +138,7 @@ const Login = props => {
                                 </Button>
                             </InputRightElement>
                         </InputGroup>
-                        {!!errors.password  ? (
+                        {!!errors.password ? (
                             <HStack spacing={1} mt={2}>
                                 <FormErrorIcon />
                                 <FormErrorMessage>
@@ -156,7 +158,9 @@ const Login = props => {
                 </HStack>
                 <ButtonGroup spacing={4} colorScheme="red">
                     <Button type="submit">Login</Button>
-                    <Button variant="outline">Create Account</Button>
+                    <Button variant="outline" onClick={getRegisterPage}>
+                        Create Account
+                    </Button>
                 </ButtonGroup>
             </Flex>
         </Flex>
