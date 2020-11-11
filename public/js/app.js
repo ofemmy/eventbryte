@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "js/" + ({}[chunkId]||chunkId) + ".js?id=" + {"1":"b498a7fb36a0788ad55a","2":"adcfc4ca2884a11643a3","3":"1fdc964086e36f00f2cf","4":"9a1ed3d1aa96e2e32d48","5":"825b5e4b3102b4fb864a","6":"95f71aef7a187388408c","7":"3ff1730aa9d8c463cc98","8":"d95d8ea03299e0e392f8","9":"a4ace85fd4f72caf4041"}[chunkId] + ""
+/******/ 		return __webpack_require__.p + "js/" + ({}[chunkId]||chunkId) + ".js?id=" + {"1":"b498a7fb36a0788ad55a","2":"fea0522372872b6009ac","3":"e2b35a7188d2388eec92","4":"8207e680874c3a8c4c91","5":"d78469fc419a72e9e353","6":"123fb166c5e8eb77501c","7":"3ff1730aa9d8c463cc98","8":"d95d8ea03299e0e392f8","9":"a4ace85fd4f72caf4041","10":"97d640cb7a839a52e08f","11":"b81f99e633a0d73d5dc2"}[chunkId] + ""
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -82500,6 +82500,18 @@ module.exports = function(module) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
+	"./Event/CreateEvent": [
+		"./resources/js/Pages/Event/CreateEvent.js",
+		9,
+		3,
+		11
+	],
+	"./Event/CreateEvent.js": [
+		"./resources/js/Pages/Event/CreateEvent.js",
+		9,
+		3,
+		11
+	],
 	"./Event/Details": [
 		"./resources/js/Pages/Event/Details.js",
 		9,
@@ -82523,13 +82535,13 @@ var map = {
 	"./Index": [
 		"./resources/js/Pages/Index.js",
 		9,
-		3,
+		10,
 		2
 	],
 	"./Index.js": [
 		"./resources/js/Pages/Index.js",
 		9,
-		3,
+		10,
 		2
 	],
 	"./Login": [

@@ -3,7 +3,7 @@ import { Box, Image, Container, Flex, Heading, Button } from "@chakra-ui/core";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 import { Inertia } from "@inertiajs/inertia";
 const Hero = () => {
-    const createEvent = ()=>Inertia.get("/events")
+    const createEvent = ()=>Inertia.get("/events/create")
     return (
         <Box background="white">
             <Container
@@ -34,7 +34,6 @@ const Hero = () => {
                     </Heading>
                     <Button
                         mt={3}
-                        variant="outline"
                         colorScheme="red"
                         rightIcon={<ArrowForwardIcon />}
                         onClick={createEvent}

@@ -7,8 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class EventCategory extends Model
 {
-    protected $guarded = [];
     use HasFactory;
+    protected $guarded = [];
+    protected $hidden = ['created_at','updated_at'];
     public function events()
     {
         return $this->hasMany('\app\Models\Event');

@@ -61,7 +61,7 @@ const Navbar = props => {
                     <InertiaLink href="/">Home</InertiaLink>
                 </Button>
                 <Button variant="outline" colorScheme="red" mr={2}>
-                    <InertiaLink href="/about">Create Event</InertiaLink>
+                    <InertiaLink href="/events/create">Create Event</InertiaLink>
                 </Button>
                 {isLoggedIn ? (
                     <Menu>
@@ -94,7 +94,8 @@ const Navbar = props => {
                             </MenuItem>
                             <MenuDivider />
                             <MenuItem>My Events</MenuItem>
-                            <MenuItem>Liked Events</MenuItem>
+                            <MenuItem>Liked</MenuItem>
+                            <MenuItem>Registered</MenuItem>
                             <MenuDivider />
                             <MenuItem
                                 as="button"

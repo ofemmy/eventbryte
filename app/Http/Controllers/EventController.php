@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Models\EventCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 use Inertia\Inertia;
@@ -16,12 +17,12 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events=Event::all()->take(10);
-        foreach ($events as $ev ) {
-            $ev['detailsUrl']=URL::route('events.show',$ev);
+        $events = Event::all()->take(10);
+        foreach ($events as $ev) {
+            $ev['detailsUrl'] = URL::route('events.show', $ev);
         }
-        return Inertia::render('Event/Index',[
-            'events'=>$events
+        return Inertia::render('Event/Index', [
+            'events' => $events
         ]);
     }
 
@@ -32,7 +33,10 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+
+        return Inertia::render('Event/CreateEvent', [
+            'categories' => EventCategory::all()
+        ]);
     }
 
     /**
@@ -54,8 +58,8 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-       $event['editUrl']=URL::route('events.edit',$event);
-      return Inertia::render('Event/Details',['event'=>$event]);
+        $event['editUrl'] = URL::route('events.edit', $event);
+        return Inertia::render('Event/Details', ['event' => $event]);
     }
 
     /**
