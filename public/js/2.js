@@ -110,6 +110,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
 /* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils */ "./resources/js/utils/index.js");
+
 
 
 
@@ -118,30 +120,6 @@ __webpack_require__.r(__webpack_exports__);
 
 var EventCard = function EventCard(_ref) {
   var event = _ref.event;
-
-  var formatDateToString = function formatDateToString(date) {
-    var locale = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "en-US";
-    var options = {
-      weekday: "long",
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-      hour: "numeric",
-      minute: "numeric",
-      timeZoneName: "short"
-    };
-    return new Date(date).toLocaleString(locale, options);
-  };
-
-  var formatPrice = function formatPrice(price) {
-    var locale = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "de-DE";
-    return new Intl.NumberFormat(locale, {
-      style: "currency",
-      currency: "EUR",
-      minimumFractionDigits: 2,
-      currencyDisplay: "symbol"
-    }).format(price);
-  };
 
   var showDetails = function showDetails() {
     _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__["Inertia"].get(event.detailsUrl);
@@ -177,7 +155,7 @@ var EventCard = function EventCard(_ref) {
     color: "primary-dark"
   }, event.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_chakra_ui_core__WEBPACK_IMPORTED_MODULE_1__["Box"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_chakra_ui_core__WEBPACK_IMPORTED_MODULE_1__["Text"], {
     fontSize: "sm"
-  }, formatDateToString(event.startDate))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_chakra_ui_core__WEBPACK_IMPORTED_MODULE_1__["Box"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_chakra_ui_core__WEBPACK_IMPORTED_MODULE_1__["Stat"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_chakra_ui_core__WEBPACK_IMPORTED_MODULE_1__["StatNumber"], null, formatPrice(event.price)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_chakra_ui_core__WEBPACK_IMPORTED_MODULE_1__["Flex"], {
+  }, Object(_utils__WEBPACK_IMPORTED_MODULE_5__["formatDateToString"])(event.startDate))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_chakra_ui_core__WEBPACK_IMPORTED_MODULE_1__["Box"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_chakra_ui_core__WEBPACK_IMPORTED_MODULE_1__["Stat"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_chakra_ui_core__WEBPACK_IMPORTED_MODULE_1__["StatNumber"], null, Object(_utils__WEBPACK_IMPORTED_MODULE_5__["formatPrice"])(event.price)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_chakra_ui_core__WEBPACK_IMPORTED_MODULE_1__["Flex"], {
     mt: 4,
     justify: "space-between"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_chakra_ui_core__WEBPACK_IMPORTED_MODULE_1__["HStack"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_chakra_ui_core__WEBPACK_IMPORTED_MODULE_1__["IconButton"], {
@@ -698,13 +676,14 @@ __webpack_require__.r(__webpack_exports__);
 
 function Layout(_ref) {
   var title = _ref.title,
-      children = _ref.children;
+      children = _ref.children,
+      bG = _ref.bG;
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     document.title = title;
   }, [title]);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_chakra_ui_core__WEBPACK_IMPORTED_MODULE_2__["Box"], {
     as: "main",
-    bg: "gray.50",
+    bg: bG ? bG : "gray.50",
     minH: "100vh",
     w: "100%"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Navbar__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, children));
@@ -716,12 +695,14 @@ function Layout(_ref) {
 /*!*************************************!*\
   !*** ./resources/js/utils/index.js ***!
   \*************************************/
-/*! exports provided: range */
+/*! exports provided: range, formatDateToString, formatPrice */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "range", function() { return range; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "formatDateToString", function() { return formatDateToString; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "formatPrice", function() { return formatPrice; });
 function range(start, end) {
   var res = [];
 
@@ -731,6 +712,28 @@ function range(start, end) {
 
   return res;
 }
+var formatDateToString = function formatDateToString(date) {
+  var locale = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "en-US";
+  var options = {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+    timeZoneName: "short"
+  };
+  return new Date(date).toLocaleString(locale, options);
+};
+var formatPrice = function formatPrice(price) {
+  var locale = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "de-DE";
+  return new Intl.NumberFormat(locale, {
+    style: "currency",
+    currency: "EUR",
+    minimumFractionDigits: 2,
+    currencyDisplay: "symbol"
+  }).format(price);
+};
 
 /***/ })
 

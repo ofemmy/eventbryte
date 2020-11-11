@@ -15,28 +15,9 @@ import {
 import { HiOutlineShare, HiOutlineHeart } from "react-icons/hi";
 import { InertiaLink } from "@inertiajs/inertia-react";
 import { Inertia } from "@inertiajs/inertia";
-
+import {formatDateToString,formatPrice} from "../utils"
 const EventCard = ({ event }) => {
-    const formatDateToString = (date, locale = "en-US") => {
-        let options = {
-            weekday: "long",
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-            hour: "numeric",
-            minute: "numeric",
-            timeZoneName: "short"
-        };
-        return new Date(date).toLocaleString(locale, options);
-    };
-    const formatPrice = (price, locale = "de-DE") => {
-        return new Intl.NumberFormat(locale, {
-            style: "currency",
-            currency: "EUR",
-            minimumFractionDigits: 2,
-            currencyDisplay: "symbol"
-        }).format(price);
-    };
+
     const showDetails = () => {
         Inertia.get(event.detailsUrl);
     };

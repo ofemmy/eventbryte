@@ -202,13 +202,14 @@ __webpack_require__.r(__webpack_exports__);
 
 function Layout(_ref) {
   var title = _ref.title,
-      children = _ref.children;
+      children = _ref.children,
+      bG = _ref.bG;
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     document.title = title;
   }, [title]);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_chakra_ui_core__WEBPACK_IMPORTED_MODULE_2__["Box"], {
     as: "main",
-    bg: "gray.50",
+    bg: bG ? bG : "gray.50",
     minH: "100vh",
     w: "100%"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Navbar__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, children));

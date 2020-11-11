@@ -54,7 +54,6 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-        $event->makeHidden(['updated_at','created_at']);
        $event['editUrl']=URL::route('events.edit',$event);
       return Inertia::render('Event/Details',['event'=>$event]);
     }

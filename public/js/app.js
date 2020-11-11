@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "js/" + ({}[chunkId]||chunkId) + ".js?id=" + {"1":"b498a7fb36a0788ad55a","2":"0ccea4a3dce1c2f23e1b","3":"1fdc964086e36f00f2cf","4":"861e3f33572de51f8037","5":"1432df9afc36b3d56322","6":"5a05761dcb55508ca43e","7":"506533690a3ca507a8a4","8":"c5d7881be6576a1c8992","9":"3b75c1e7182c11875edb"}[chunkId] + ""
+/******/ 		return __webpack_require__.p + "js/" + ({}[chunkId]||chunkId) + ".js?id=" + {"1":"b498a7fb36a0788ad55a","2":"adcfc4ca2884a11643a3","3":"1fdc964086e36f00f2cf","4":"9a1ed3d1aa96e2e32d48","5":"825b5e4b3102b4fb864a","6":"95f71aef7a187388408c","7":"3ff1730aa9d8c463cc98","8":"d95d8ea03299e0e392f8","9":"a4ace85fd4f72caf4041"}[chunkId] + ""
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -82502,69 +82502,69 @@ module.exports = function(module) {
 var map = {
 	"./Event/Details": [
 		"./resources/js/Pages/Event/Details.js",
-		6,
+		9,
 		4
 	],
 	"./Event/Details.js": [
 		"./resources/js/Pages/Event/Details.js",
-		6,
+		9,
 		4
 	],
 	"./Event/Index": [
 		"./resources/js/Pages/Event/Index.js",
-		6,
+		9,
 		5
 	],
 	"./Event/Index.js": [
 		"./resources/js/Pages/Event/Index.js",
-		6,
+		9,
 		5
 	],
 	"./Index": [
 		"./resources/js/Pages/Index.js",
-		6,
+		9,
 		3,
 		2
 	],
 	"./Index.js": [
 		"./resources/js/Pages/Index.js",
-		6,
+		9,
 		3,
 		2
 	],
 	"./Login": [
 		"./resources/js/Pages/Login.js",
-		6,
+		9,
 		1,
-		8
+		7
 	],
 	"./Login.js": [
 		"./resources/js/Pages/Login.js",
-		6,
+		9,
 		1,
-		8
+		7
 	],
 	"./Register": [
 		"./resources/js/Pages/Register.js",
-		6,
+		9,
 		1,
-		9
+		8
 	],
 	"./Register.js": [
 		"./resources/js/Pages/Register.js",
-		6,
+		9,
 		1,
-		9
+		8
 	],
 	"./VerifyEmail": [
 		"./resources/js/Pages/VerifyEmail.js",
-		6,
-		7
+		9,
+		6
 	],
 	"./VerifyEmail.js": [
 		"./resources/js/Pages/VerifyEmail.js",
-		6,
-		7
+		9,
+		6
 	]
 };
 function webpackAsyncContext(req) {
