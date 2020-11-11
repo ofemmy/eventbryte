@@ -11,12 +11,12 @@ class PagesController extends Controller
 {
     public function index()
     {
-        $events=Event::paginate(3);
-        foreach ($events as $ev ) {
-            $ev['detailsUrl']=URL::route('events.show',$ev);
+        $events = Event::paginate(10);
+        foreach ($events as $ev) {
+            $ev['detailsUrl'] = URL::route('events.show', $ev);
         }
-        return Inertia::render('Index',[
-            'events'=>$events
+        return Inertia::render('Index', [
+            'events' => $events
         ]);
     }
 }

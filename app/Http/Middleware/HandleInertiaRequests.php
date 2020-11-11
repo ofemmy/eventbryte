@@ -41,10 +41,23 @@ class HandleInertiaRequests extends Middleware
             'user' => function(){
                 global $request;
                 if ($request->user()){
-                    return $request->user()->only('id','name','email');
+                    $user =$request->user();
+                    $res = $user->only('id','name','email');
+                    $res['hasVerifiedEmail']=$user->hasVerifiedEmail();
+                    return $res;
                 }
                 return null;
             },
+            'flash'=>[
+                'message'=> function(){
+                    global $request;
+                    return $request->session()->get('message');
+                },
+                // 'status'=>function(){
+                //     global $request;
+                //     return $request->session()->get('status');
+                // }
+            ]
         ]);
     }
 }

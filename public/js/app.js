@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "js/" + ({}[chunkId]||chunkId) + ".js?id=" + {"0":"d6ca87b01ed124f35e09","1":"b498a7fb36a0788ad55a","2":"539d9750a730b0a92107","3":"1fdc964086e36f00f2cf","4":"c24c6adecc3772107517","5":"a513c506d708609a5291","8":"c5d7881be6576a1c8992","9":"3b75c1e7182c11875edb"}[chunkId] + ""
+/******/ 		return __webpack_require__.p + "js/" + ({}[chunkId]||chunkId) + ".js?id=" + {"1":"b498a7fb36a0788ad55a","2":"0ccea4a3dce1c2f23e1b","3":"1fdc964086e36f00f2cf","4":"861e3f33572de51f8037","5":"1432df9afc36b3d56322","6":"5a05761dcb55508ca43e","7":"506533690a3ca507a8a4","8":"c5d7881be6576a1c8992","9":"3b75c1e7182c11875edb"}[chunkId] + ""
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -82502,59 +82502,69 @@ module.exports = function(module) {
 var map = {
 	"./Event/Details": [
 		"./resources/js/Pages/Event/Details.js",
-		0,
+		6,
 		4
 	],
 	"./Event/Details.js": [
 		"./resources/js/Pages/Event/Details.js",
-		0,
+		6,
 		4
 	],
 	"./Event/Index": [
 		"./resources/js/Pages/Event/Index.js",
-		0,
+		6,
 		5
 	],
 	"./Event/Index.js": [
 		"./resources/js/Pages/Event/Index.js",
-		0,
+		6,
 		5
 	],
 	"./Index": [
 		"./resources/js/Pages/Index.js",
-		0,
+		6,
 		3,
 		2
 	],
 	"./Index.js": [
 		"./resources/js/Pages/Index.js",
-		0,
+		6,
 		3,
 		2
 	],
 	"./Login": [
 		"./resources/js/Pages/Login.js",
-		0,
+		6,
 		1,
 		8
 	],
 	"./Login.js": [
 		"./resources/js/Pages/Login.js",
-		0,
+		6,
 		1,
 		8
 	],
 	"./Register": [
 		"./resources/js/Pages/Register.js",
-		0,
+		6,
 		1,
 		9
 	],
 	"./Register.js": [
 		"./resources/js/Pages/Register.js",
-		0,
+		6,
 		1,
 		9
+	],
+	"./VerifyEmail": [
+		"./resources/js/Pages/VerifyEmail.js",
+		6,
+		7
+	],
+	"./VerifyEmail.js": [
+		"./resources/js/Pages/VerifyEmail.js",
+		6,
+		7
 	]
 };
 function webpackAsyncContext(req) {
