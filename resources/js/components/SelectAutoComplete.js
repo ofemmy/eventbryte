@@ -6,7 +6,7 @@ import {
 } from "@chakra-ui/core";
 import React, { useState } from "react";
 
-const SelectAutoComplete = ({options}) => {
+const SelectAutoComplete = ({options,registerFn}) => {
     const [input, setInput] = useState("");
     const [suggestions, setSuggestions] = useState([]);
     const onTextChanged = e => {
@@ -25,7 +25,7 @@ const SelectAutoComplete = ({options}) => {
     };
     return (
         <Box position="relative">
-            <Input onChange={onTextChanged} value={input} />
+            <Input onChange={onTextChanged} value={input} ref={registerFn} name="country"/>
             {suggestions.length == 0 ? null : (
                 <List
                     position="absolute"

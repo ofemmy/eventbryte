@@ -93,7 +93,7 @@ const Navbar = props => {
                                 </VStack>
                             </MenuItem>
                             <MenuDivider />
-                            <MenuItem>My Events</MenuItem>
+                            <MenuItem><InertiaLink href="/events/me">My Events</InertiaLink></MenuItem>
                             <MenuItem>Liked</MenuItem>
                             <MenuItem>Registered</MenuItem>
                             <MenuDivider />

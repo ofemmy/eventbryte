@@ -4,6 +4,7 @@ import { InertiaLink } from '@inertiajs/inertia-react'
 import Layout from '../../shared/Layout'
 
 const Index = ({events}) => {
+    console.log(events);
     return (
         <Layout title="Events">
              <SimpleGrid minChildWidth="330px" spacing="30px" p={6}>

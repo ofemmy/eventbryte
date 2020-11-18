@@ -25,14 +25,14 @@ class EventFactory extends Factory
         return [
             'title'=>$this->faker->sentence,
             'description'=>$this->faker->text,
-            'imageUrl'=>$this->faker->imageUrl($width = 640, $height = 480),
+            'imageUrl'=>'https://source.unsplash.com/featured/?event,party,people',
             'price'=>$this->faker->randomFloat($nbMaxDecimals = 2, $min = 0, $max = 300),
-            'address-line1'=>$this->faker->streetAddress,
+            'addressLine1'=>$this->faker->streetAddress,
             'zipcode'=>$this->faker->postcode,
             'city'=>$this->faker->city,
             'country'=>$this->faker->country,
             'status'=>'Draft',
-            'max-attendees'=>$this->faker->numberBetween($min = 50, $max = 200),
+            'maxAttendees'=>$this->faker->numberBetween($min = 50, $max = 200),
             'startDate'=>$this->faker->dateTime,
             'endDate'=>$this->faker->dateTime,
         ];

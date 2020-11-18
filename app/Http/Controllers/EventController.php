@@ -2,10 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreEvent;
 use App\Models\Event;
 use App\Models\EventCategory;
+use Illuminate\Database\QueryException;
+use Illuminate\Support\Str;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 use Inertia\Inertia;
 
 class EventController extends Controller
@@ -17,7 +25,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Event::all()->take(10);
+        $events = Event::latest()->paginate(10);
         foreach ($events as $ev) {
             $ev['detailsUrl'] = URL::route('events.show', $ev);
         }
@@ -45,9 +53,19 @@ class EventController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreEvent $request)
     {
-        //
+        $validated = $request->validated();
+        if ($request->hasFile('coverImage')) {
+            $path = $request->file('coverImage')->store('cover-images');
+            $validated["imageUrl"] = $path;
+        }
+        try {
+            $event = Event::create(Arr::except($validated, ['coverImage']));
+            return Redirect::route('index', compact('event'))->with('message', 'New Event successfully published');
+        } catch (QueryException $e) {
+            return back($e);
+        }
     }
 
     /**
@@ -94,5 +112,19 @@ class EventController extends Controller
     public function destroy(Event $event)
     {
         //
+    }
+    public function storeImage($request)
+    {
+        $image = $request['coverImage'];
+        $filenameWithExt = $image->getClientOriginalName();
+        $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+
+        // Remove unwanted characters
+        $filename = preg_replace("/[^A-Za-z0-9 ]/", '', $filename);
+        $filename = preg_replace("/\s+/", '-', $filename);
+        // Get the original image extension
+        $extension = $image->getClientOriginalExtension();
+        // Create unique file name
+        $fileNameToStore = Str::slug($request['title']) . '.' . $extension;
     }
 }

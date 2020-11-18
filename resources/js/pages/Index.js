@@ -13,6 +13,7 @@ import Layout from "../shared/Layout";
 import EventCard from "../components/EventCard";
 import Pagination from "../components/Pagination";
 import FlashBox from "../components/FlashBox";
+import Eventslisting from "../components/Eventslisting";
 
 export default function Index({ events, ...rest }) {
     const { flash } = usePage().props;
@@ -51,8 +52,8 @@ export default function Index({ events, ...rest }) {
                     <Divider />
                 </Box>
             </Container>
-
-            <Container maxWidth="1200px">
+            <Eventslisting events={events} paginationData={paginationData} isMe={false}/>
+            {/* <Container maxWidth="1200px">
                 <SimpleGrid minChildWidth="300px" spacing="40px">
                     {events.data.map(event => (
                         <EventCard event={event} key={event.id} />
@@ -61,7 +62,7 @@ export default function Index({ events, ...rest }) {
             </Container>
             <Container maxWidth="1200px" my={6}>
                 <Pagination paginationData={paginationData} />
-            </Container>
+            </Container> */}
         </Layout>
     );
 }

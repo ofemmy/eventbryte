@@ -15,6 +15,7 @@ class Event extends Model
         'created_at',
         'updated_at',
     ];
+    // protected $dateFormat = 'D M d Y H:i:s O';
 
     public function user()
     {

@@ -11,7 +11,7 @@ class PagesController extends Controller
 {
     public function index()
     {
-        $events = Event::paginate(10);
+        $events = Event::latest()->paginate(10);
         foreach ($events as $ev) {
             $ev['detailsUrl'] = URL::route('events.show', $ev);
         }

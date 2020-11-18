@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\MyEventController;
 use App\Http\Controllers\PagesController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
@@ -20,6 +21,7 @@ use Inertia\Inertia;
 */
 
 Route::get('/', [PagesController::class, 'index'])->name('index');
+Route::get('events/me', [MyEventController::class,'index'])->name('myevents.index');
 Route::resource('events', EventController::class)->middleware('verified');
 
 Route::get('/email/verify', function () {

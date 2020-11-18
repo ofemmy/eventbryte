@@ -16,7 +16,7 @@ import { HiOutlineShare, HiOutlineHeart } from "react-icons/hi";
 import { InertiaLink } from "@inertiajs/inertia-react";
 import { Inertia } from "@inertiajs/inertia";
 import {formatDateToString,formatPrice} from "../utils"
-const EventCard = ({ event }) => {
+const EventCard = ({ event}) => {
 
     const showDetails = () => {
         Inertia.get(event.detailsUrl);
