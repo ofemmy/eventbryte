@@ -1,4 +1,4 @@
-import { Box, FormControl, FormLabel,HStack,Input } from "@chakra-ui/core";
+import { Box, FormControl, FormLabel,HStack,Input } from "@chakra-ui/react";
 import React from "react";
 import SelectAutoComplete from "./SelectAutoComplete";
 import Countries from "../utils/countries"

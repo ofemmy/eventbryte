@@ -3,7 +3,7 @@ import {
     Box,
     List,
     ListItem
-} from "@chakra-ui/core";
+} from "@chakra-ui/react";
 import React, { useState } from "react";
 
 const SelectAutoComplete = ({options,registerFn}) => {

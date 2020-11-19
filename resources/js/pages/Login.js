@@ -19,7 +19,7 @@ import {
     ButtonGroup,
     Checkbox,
     Text
-} from "@chakra-ui/core";
+} from "@chakra-ui/react";
 import {
     LockIcon,
     EmailIcon,

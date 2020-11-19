@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Inertia } from "@inertiajs/inertia";
-import { Flex } from "@chakra-ui/core";
+import { Flex } from "@chakra-ui/react";
 import {
     AiOutlineDoubleLeft,
     AiOutlineDoubleRight,

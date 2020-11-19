@@ -6,10 +6,10 @@ import {
     Box,
     SimpleGrid,
     useToast
-} from "@chakra-ui/core";
+} from "@chakra-ui/react";
 import { usePage } from "@inertiajs/inertia-react";
 import Hero from "../components/Hero";
-import Layout from "../shared/Layout";
+import CommonLayout from "../shared/CommonLayout";
 import EventCard from "../components/EventCard";
 import Pagination from "../components/Pagination";
 import FlashBox from "../components/FlashBox";
@@ -44,7 +44,7 @@ export default function Index({ events, ...rest }) {
     };
 
     return (
-        <Layout title="Home">
+        <CommonLayout title="Home">
             <Hero />
             <Container maxWidth="1200px">
                 <Box p={4}>
@@ -63,6 +63,6 @@ export default function Index({ events, ...rest }) {
             <Container maxWidth="1200px" my={6}>
                 <Pagination paginationData={paginationData} />
             </Container> */}
-        </Layout>
+        </CommonLayout>
     );
 }

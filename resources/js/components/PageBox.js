@@ -1,6 +1,6 @@
 import React from "react"
 import { Inertia } from '@inertiajs/inertia'
-import {Flex} from "@chakra-ui/core"
+import {Flex} from "@chakra-ui/react"
 const PageBox = ({ page,active,clickfn}) => {
     const clickHandler2 = () => {
         if (page === "...") {

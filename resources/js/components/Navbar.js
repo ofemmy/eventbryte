@@ -18,7 +18,7 @@ import {
     MenuDivider,
     VStack,
     HStack
-} from "@chakra-ui/core";
+} from "@chakra-ui/react";
 import { ChevronDownIcon, InfoIcon, SearchIcon } from "@chakra-ui/icons";
 import { Inertia } from "@inertiajs/inertia";
 
@@ -58,7 +58,7 @@ const Navbar = props => {
             </Box>
             <Flex justify="space-around" flex="2">
                 <Button mr={2}>
-                    <InertiaLink href="/">Home</InertiaLink>
+                    <InertiaLink href="/">Browse Events</InertiaLink>
                 </Button>
                 <Button variant="outline" colorScheme="red" mr={2}>
                     <InertiaLink href="/events/create">Create Event</InertiaLink>
@@ -93,7 +93,7 @@ const Navbar = props => {
                                 </VStack>
                             </MenuItem>
                             <MenuDivider />
-                            <MenuItem><InertiaLink href="/events/me">My Events</InertiaLink></MenuItem>
+                            <MenuItem><InertiaLink href="/events">My Events</InertiaLink></MenuItem>
                             <MenuItem>Liked</MenuItem>
                             <MenuItem>Registered</MenuItem>
                             <MenuDivider />

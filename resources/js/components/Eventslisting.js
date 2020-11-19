@@ -1,5 +1,5 @@
 import React from "react";
-import {Box,Container,SimpleGrid} from '@chakra-ui/core'
+import {Box,Container,SimpleGrid} from '@chakra-ui/react'
 import Pagination from '../components/Pagination'
 import EventCard from "../components/EventCard"
 const Eventslisting = ({events,paginationData,isMe}) => {

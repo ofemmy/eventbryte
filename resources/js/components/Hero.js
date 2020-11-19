@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Image, Container, Flex, Heading, Button } from "@chakra-ui/core";
+import { Box, Image, Container, Flex, Heading, Button } from "@chakra-ui/react";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 import { Inertia } from "@inertiajs/inertia";
 const Hero = () => {

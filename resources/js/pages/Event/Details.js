@@ -11,8 +11,8 @@ import {
     Text,
     VStack,
     Button
-} from "@chakra-ui/core";
-import Layout from "../../shared/Layout";
+} from "@chakra-ui/react";
+import CommonLayout from "../../shared/CommonLayout";
 import { formatDateToString, formatPrice } from "../../utils";
 import Subheading from "../../components/Subheading";
 
@@ -21,7 +21,7 @@ const Details = ({ event }) => {
     const addLine1 = event["address-line1"];
     const addLine2 = event["address-line2"];
     return (
-        <Layout title={event.title}>
+        <CommonLayout title={event.title}>
             <Container
                 maxW="1080px"
                 minH="100vh"
@@ -98,7 +98,7 @@ const Details = ({ event }) => {
                     </Flex>
                 </Flex>
             </Container>
-        </Layout>
+        </CommonLayout>
     );
 };
 

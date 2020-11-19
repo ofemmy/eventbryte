@@ -20,8 +20,8 @@ import {
     Radio,
     InputLeftElement,
     InputGroup
-} from "@chakra-ui/core";
-import Layout from "../../shared/Layout";
+} from "@chakra-ui/react";
+import CommonLayout from "../../shared/CommonLayout";
 import DatePicker from "react-datepicker";
 import { Editor } from "react-draft-wysiwyg";
 import AddressInput from "../../components/AddressInput";
@@ -69,7 +69,7 @@ const CreateEvent = ({ categories, user }) => {
         );
     };
     return (
-        <Layout title="Create New Event">
+        <CommonLayout title="Create New Event">
             <Container
                 maxW="815px"
                 minH="100vh"
@@ -480,7 +480,7 @@ const CreateEvent = ({ categories, user }) => {
                     </HStack>
                 </Flex>
             </Container>
-        </Layout>
+        </CommonLayout>
     );
 };
 

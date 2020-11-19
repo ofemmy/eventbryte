@@ -11,7 +11,7 @@ import {
     Flex,
     StatNumber,
     Stat
-} from "@chakra-ui/core";
+} from "@chakra-ui/react";
 import { HiOutlineShare, HiOutlineHeart } from "react-icons/hi";
 import { InertiaLink } from "@inertiajs/inertia-react";
 import { Inertia } from "@inertiajs/inertia";

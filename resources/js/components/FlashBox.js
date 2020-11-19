@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Heading, HStack,Text } from "@chakra-ui/core";
+import { Box, Heading, HStack,Text } from "@chakra-ui/react";
 import { CheckCircleIcon, WarningTwoIcon, WarningIcon } from "@chakra-ui/icons";
 const FlashBox = ({ title, description, status }) => {
     const statusMap = {

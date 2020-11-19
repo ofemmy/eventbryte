@@ -1,4 +1,4 @@
-import { Flex, Text, Input, Box, Image, Fade } from "@chakra-ui/core";
+import { Flex, Text, Input, Box, Image, Fade } from "@chakra-ui/react";
 import React, { useRef, useState, useEffect } from "react";
 import { BiImageAlt } from "react-icons/bi";
 import { AiFillDelete } from "react-icons/ai";

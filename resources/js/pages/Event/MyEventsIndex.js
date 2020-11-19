@@ -1,5 +1,5 @@
 import React from 'react'
-import Layout from '../../shared/Layout'
+import CommonLayout from '../../shared/CommonLayout'
 import Eventslisting from "../../components/Eventslisting"
 
 const MyEventsIndex = ({events}) => {
@@ -17,9 +17,9 @@ const MyEventsIndex = ({events}) => {
         lastPage: events.last_page
     };
     return (
-        <Layout title="My Events">
-            
-        </Layout>
+        <CommonLayout title="My Events">
+
+        </CommonLayout>
     )
 }
 

@@ -2,7 +2,7 @@ import { App } from '@inertiajs/inertia-react'
 import React from 'react'
 import { render } from 'react-dom'
 import { InertiaProgress } from '@inertiajs/progress'
-import {ChakraProvider, extendTheme} from "@chakra-ui/core"
+import {ChakraProvider, extendTheme} from "@chakra-ui/react"
 
 
 InertiaProgress.init()

@@ -1,6 +1,6 @@
 import React,{useEffect} from "react";
-import { Flex, Heading, Text, Button, Box } from "@chakra-ui/core";
-import Layout from "../shared/Layout";
+import { Flex, Heading, Text, Button, Box } from "@chakra-ui/react";
+import CommonLayout from "../shared/CommonLayout";
 import { EmailIcon } from "@chakra-ui/icons";
 import { Inertia } from "@inertiajs/inertia";
 import { usePage } from "@inertiajs/inertia-react";
@@ -11,7 +11,7 @@ const VerifyEmail = ({ user }) => {
         });
     };
     return (
-        <Layout title="Verify Email">
+        <CommonLayout title="Verify Email">
             <Flex
                 minH="100vh"
                 minW="100%"
@@ -40,7 +40,7 @@ const VerifyEmail = ({ user }) => {
                     Resend Verification Link
                 </Button>
             </Flex>
-        </Layout>
+        </CommonLayout>
     );
 };
 
