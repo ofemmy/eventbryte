@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "js/" + ({}[chunkId]||chunkId) + ".js?id=" + {"0":"d6ca87b01ed124f35e09","1":"897cca778926bd4d99b3","2":"0a14cc98292e7836a19e","3":"e1319dc1e56cd65c77a7","6":"7cc872fb1e69141e6f3d","7":"a44e473aef3f42b75475","8":"c21ebdf6007463e9b300","11":"46f14701b61f9c8c852c","13":"837ec10d736b9744abb6","14":"dd23320d69640895b5b0","15":"adc327fe980dc0b60d24","17":"19186fd09633f9b807a2","19":"ee93163afff5fd870442","20":"ea7fa530a8c3edb57b90","21":"4bb5d4ee6b62f8204db0","22":"f6acaab0000b327867f3"}[chunkId] + ""
+/******/ 		return __webpack_require__.p + "js/" + ({}[chunkId]||chunkId) + ".js?id=" + {"0":"d6ca87b01ed124f35e09","1":"f83013ede9f966fdb728","2":"0a14cc98292e7836a19e","3":"d324afeb15930817e32e","4":"11bc17482d6f9f839a7a","5":"8ab7c6e58920c03ff3f6","6":"7cc872fb1e69141e6f3d","7":"a44e473aef3f42b75475","8":"c21ebdf6007463e9b300","9":"126d64bb82e6af734b4a","10":"9d22185030e823b30ae6","11":"14bdd7c8adddc27ad85c","12":"086366a1ae1166b7eba0","13":"f92197d105a26da3c534","14":"dd23320d69640895b5b0","15":"77a8b697c70e841f4c0e"}[chunkId] + ""
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -18849,7 +18849,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "chakra", function() { return chakra; });
 /* harmony import */ var _chakra_ui_styled_system__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @chakra-ui/styled-system */ "./node_modules/@chakra-ui/styled-system/dist/esm/index.js");
 /* harmony import */ var _chakra_ui_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @chakra-ui/utils */ "./node_modules/@chakra-ui/utils/dist/esm/index.js");
-/* harmony import */ var _emotion_styled__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js");
+/* harmony import */ var _emotion_styled__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @emotion/styled */ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js");
 /* harmony import */ var _should_forward_prop__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./should-forward-prop */ "./node_modules/@chakra-ui/system/dist/esm/should-forward-prop.js");
 /* harmony import */ var _system_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./system.utils */ "./node_modules/@chakra-ui/system/dist/esm/system.utils.js");
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
@@ -18951,7 +18951,7 @@ function styled(component, options) {
     shouldForwardProp: _should_forward_prop__WEBPACK_IMPORTED_MODULE_3__["shouldForwardProp"]
   });
 
-  var styledFn = Object(_emotion_styled__WEBPACK_IMPORTED_MODULE_5__["default"])(component, opts);
+  var styledFn = Object(_emotion_styled__WEBPACK_IMPORTED_MODULE_2__["default"])(component, opts);
   var args = styleResolver({
     baseStyle
   });
@@ -82586,116 +82586,116 @@ var map = {
 	"./Event/CreateEvent": [
 		"./resources/js/Pages/Event/CreateEvent.js",
 		0,
-		11,
+		1,
 		2,
-		3,
+		4,
 		7,
 		8
 	],
 	"./Event/CreateEvent.js": [
 		"./resources/js/Pages/Event/CreateEvent.js",
 		0,
-		11,
+		1,
 		2,
-		3,
+		4,
 		7,
 		8
 	],
 	"./Event/Details": [
 		"./resources/js/Pages/Event/Details.js",
 		0,
-		1
+		9
 	],
 	"./Event/Details.js": [
 		"./resources/js/Pages/Event/Details.js",
 		0,
-		1
+		9
 	],
 	"./Event/Index": [
 		"./resources/js/Pages/Event/Index.js",
 		0,
-		11,
+		1,
+		4,
 		3,
-		19,
-		17
+		13
 	],
 	"./Event/Index.js": [
 		"./resources/js/Pages/Event/Index.js",
 		0,
-		11,
+		1,
+		4,
 		3,
-		19,
-		17
+		13
 	],
 	"./Event/MyEventsIndex": [
 		"./resources/js/Pages/Event/MyEventsIndex.js",
 		0,
-		11,
+		1,
 		6,
-		19,
-		13
+		3,
+		11
 	],
 	"./Event/MyEventsIndex.js": [
 		"./resources/js/Pages/Event/MyEventsIndex.js",
 		0,
-		11,
+		1,
 		6,
-		19,
-		13
+		3,
+		11
 	],
 	"./Index": [
 		"./resources/js/Pages/Index.js",
 		0,
-		11,
+		1,
 		6,
-		19,
-		21
+		3,
+		10
 	],
 	"./Index.js": [
 		"./resources/js/Pages/Index.js",
 		0,
-		11,
+		1,
 		6,
-		19,
-		21
+		3,
+		10
 	],
 	"./Login": [
 		"./resources/js/Pages/Login.js",
 		0,
 		2,
-		15,
+		5,
 		14
 	],
 	"./Login.js": [
 		"./resources/js/Pages/Login.js",
 		0,
 		2,
-		15,
+		5,
 		14
 	],
 	"./Register": [
 		"./resources/js/Pages/Register.js",
 		0,
 		2,
-		15,
-		22
+		5,
+		15
 	],
 	"./Register.js": [
 		"./resources/js/Pages/Register.js",
 		0,
 		2,
-		15,
-		22
+		5,
+		15
 	],
 	"./VerifyEmail": [
 		"./resources/js/Pages/VerifyEmail.js",
 		0,
-		20
+		12
 	],
 	"./VerifyEmail.js": [
 		"./resources/js/Pages/VerifyEmail.js",
 		0,
-		20
+		12
 	]
 };
 function webpackAsyncContext(req) {

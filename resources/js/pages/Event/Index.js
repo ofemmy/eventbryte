@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
     Box,
     Text,
@@ -29,7 +29,6 @@ import Alert from "../../components/Alert";
 import Pagination from "../../components/Pagination";
 
 const TableRow = ({ children, bg, textColor, isHeader }) => {
-
     return (
         <Grid
             templateColumns="repeat(8,1fr) 60px"
@@ -53,8 +52,12 @@ const TableHeader = ({ children }) => {
         </TableRow>
     );
 };
-const Index = ({events}) => {
-    const {isOpen,onOpen,onClose}=useDisclosure()
+const Index = ({ events }) => {
+    //console.log(events)
+    useEffect(() => {
+        console.log(events);
+    }, []);
+    const { isOpen, onOpen, onClose } = useDisclosure();
     const paginationData = {
         firstPageUrl: events.first_page_url,
         lastPageUrl: events.last_page_url,
@@ -147,29 +150,36 @@ const Index = ({events}) => {
                             alignItems="center"
                         >
                             <HStack spacing={2}>
-                            <Tooltip label="Edit">
-                            <IconButton
-                                    icon={<EditIcon />}
-                                    isRound
-                                    size="xs"
-                                />
-                            </Tooltip>
-                                    <Tooltip label="Delete">
+                                <Tooltip label="Edit">
                                     <IconButton
-                                    icon={<DeleteIcon color="primary-dark" />}
-                                    isRound
-                                    size="xs"
-                                    onClick={onOpen}
-                                />
-                                    </Tooltip>
-
+                                        icon={<EditIcon />}
+                                        isRound
+                                        size="xs"
+                                    />
+                                </Tooltip>
+                                <Tooltip label="Delete">
+                                    <IconButton
+                                        icon={
+                                            <DeleteIcon color="primary-dark" />
+                                        }
+                                        isRound
+                                        size="xs"
+                                        onClick={onOpen}
+                                    />
+                                </Tooltip>
                             </HStack>
                         </GridItem>
                     </TableRow>
                 ))}
-                <Alert onClose={onClose} isOpen={isOpen} message="Are you sure you want to delete this event?"/>
+                <Alert
+                    onClose={onClose}
+                    isOpen={isOpen}
+                    message="Are you sure you want to delete this event?"
+                />
                 <Box my={6}>
-                <Pagination paginationData={paginationData}/>
+                    {paginationData.lastPageNum > 1 && (
+                        <Pagination paginationData={paginationData} />
+                    )}
                 </Box>
             </Container>
         </AdminLayout>
